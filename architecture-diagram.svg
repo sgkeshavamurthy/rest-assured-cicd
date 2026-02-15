@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; fill: #232F3E; }
+      .subtitle { font: bold 16px sans-serif; fill: #232F3E; }
+      .label { font: 14px sans-serif; fill: #232F3E; }
+      .small-label { font: 12px sans-serif; fill: #545B64; }
+      .box { fill: #FFFFFF; stroke: #232F3E; stroke-width: 2; }
+      .aws-box { fill: #FF9900; stroke: #232F3E; stroke-width: 2; }
+      .github-box { fill: #24292E; stroke: #000000; stroke-width: 2; }
+      .arrow { stroke: #232F3E; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .success-arrow { stroke: #2EA043; stroke-width: 3; fill: none; marker-end: url(#arrowhead-success); }
+      .step-num { font: bold 16px sans-serif; fill: #FFFFFF; }
+      .step-circle { fill: #FF9900; stroke: #232F3E; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#232F3E" />
+    </marker>
+    <marker id="arrowhead-success" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2EA043" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">REST Assured CI/CD Pipeline Architecture</text>
+  <text x="600" y="65" text-anchor="middle" class="small-label">Automated Testing with AWS CodePipeline &amp; CodeBuild</text>
+  
+  <!-- Step 1: Developer -->
+  <circle cx="100" cy="150" r="20" class="step-circle"/>
+  <text x="100" y="156" text-anchor="middle" class="step-num">1</text>
+  <rect x="40" y="180" width="120" height="80" rx="5" class="box"/>
+  <text x="100" y="210" text-anchor="middle" class="subtitle">Developer</text>
+  <text x="100" y="230" text-anchor="middle" class="small-label">git push</text>
+  <text x="100" y="250" text-anchor="middle" class="small-label">commits code</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 160 220 L 230 220" class="arrow"/>
+  
+  <!-- Step 2: GitHub -->
+  <circle cx="290" cy="150" r="20" class="step-circle"/>
+  <text x="290" y="156" text-anchor="middle" class="step-num">2</text>
+  <rect x="230" y="180" width="120" height="80" rx="5" class="github-box"/>
+  <text x="290" y="210" text-anchor="middle" class="subtitle" fill="#FFFFFF">GitHub</text>
+  <text x="290" y="230" text-anchor="middle" class="small-label" fill="#FFFFFF">Repository</text>
+  <text x="290" y="250" text-anchor="middle" class="small-label" fill="#FFFFFF">Webhook</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M 350 220 L 420 220" class="arrow"/>
+  
+  <!-- AWS Cloud Box -->
+  <rect x="410" y="100" width="750" height="650" rx="10" fill="#F5F5F5" stroke="#FF9900" stroke-width="3" stroke-dasharray="5,5"/>
+  <text x="785" y="130" text-anchor="middle" class="subtitle" fill="#FF9900">AWS Cloud</text>
+  
+  <!-- Step 3: CodePipeline -->
+  <circle cx="530" cy="180" r="20" class="step-circle"/>
+  <text x="530" y="186" text-anchor="middle" class="step-num">3</text>
+  <rect x="450" y="210" width="160" height="100" rx="5" class="aws-box"/>
+  <text x="530" y="240" text-anchor="middle" class="subtitle">CodePipeline</text>
+  <text x="530" y="265" text-anchor="middle" class="small-label">Source Stage</text>
+  <text x="530" y="285" text-anchor="middle" class="small-label">Build Stage</text>
+  <text x="530" y="300" text-anchor="middle" class="small-label">Orchestrates</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M 530 310 L 530 380" class="arrow"/>
+  
+  <!-- Step 4: CodeBuild -->
+  <circle cx="530" cy="410" r="20" class="step-circle"/>
+  <text x="530" y="416" text-anchor="middle" class="step-num">4</text>
+  <rect x="440" y="440" width="180" height="180" rx="5" class="aws-box"/>
+  <text x="530" y="470" text-anchor="middle" class="subtitle">CodeBuild</text>
+  <rect x="455" y="485" width="150" height="125" rx="3" fill="#FFFFFF" stroke="#232F3E"/>
+  <text x="530" y="505" text-anchor="middle" class="small-label">• Install Java 11</text>
+  <text x="530" y="525" text-anchor="middle" class="small-label">• Maven install</text>
+  <text x="530" y="545" text-anchor="middle" class="small-label">• mvn compile</text>
+  <text x="530" y="565" text-anchor="middle" class="small-label">• mvn test</text>
+  <text x="530" y="585" text-anchor="middle" class="small-label">• Generate reports</text>
+  <text x="530" y="605" text-anchor="middle" class="small-label">buildspec.yml</text>
+  
+  <!-- Arrow 4 - To Test Reports -->
+  <path d="M 620 530 L 720 400" class="success-arrow"/>
+  
+  <!-- Step 5: Test Reports -->
+  <circle cx="800" cy="330" r="20" class="step-circle"/>
+  <text x="800" y="336" text-anchor="middle" class="step-num">5</text>
+  <rect x="720" y="360" width="160" height="100" rx="5" class="aws-box"/>
+  <text x="800" y="390" text-anchor="middle" class="subtitle">Test Reports</text>
+  <text x="800" y="415" text-anchor="middle" class="small-label">JUnit XML</text>
+  <text x="800" y="435" text-anchor="middle" class="small-label">Test Results</text>
+  <text x="800" y="450" text-anchor="middle" class="small-label">✓ Pass/Fail</text>
+  
+  <!-- Arrow 5 - To S3 -->
+  <path d="M 620 530 L 720 530" class="success-arrow"/>
+  
+  <!-- Step 6: S3 Artifacts -->
+  <circle cx="800" cy="500" r="20" class="step-circle"/>
+  <text x="800" y="506" text-anchor="middle" class="step-num">6</text>
+  <rect x="720" y="530" width="160" height="100" rx="5" class="aws-box"/>
+  <text x="800" y="560" text-anchor="middle" class="subtitle">S3 Bucket</text>
+  <text x="800" y="585" text-anchor="middle" class="small-label">Artifacts</text>
+  <text x="800" y="605" text-anchor="middle" class="small-label">Test Reports</text>
+  <text x="800" y="620" text-anchor="middle" class="small-label">Build JARs</text>
+  
+  <!-- Arrow 6 - To CloudWatch -->
+  <path d="M 530 620 L 530 680" class="arrow"/>
+  
+  <!-- Step 7: CloudWatch Logs -->
+  <circle cx="530" cy="650" r="20" class="step-circle"/>
+  <text x="530" y="656" text-anchor="middle" class="step-num">7</text>
+  <rect x="450" y="680" width="160" height="60" rx="5" class="aws-box"/>
+  <text x="530" y="710" text-anchor="middle" class="subtitle">CloudWatch</text>
+  <text x="530" y="730" text-anchor="middle" class="small-label">Build Logs</text>
+  
+  <!-- IAM Roles Box -->
+  <rect x="950" y="360" width="180" height="120" rx="5" class="box" stroke-dasharray="3,3"/>
+  <text x="1040" y="385" text-anchor="middle" class="subtitle">IAM Roles</text>
+  <text x="1040" y="410" text-anchor="middle" class="small-label">CodeBuild Role</text>
+  <text x="1040" y="430" text-anchor="middle" class="small-label">• S3 Access</text>
+  <text x="1040" y="450" text-anchor="middle" class="small-label">• CloudWatch</text>
+  <text x="1040" y="470" text-anchor="middle" class="small-label">CodePipeline Role</text>
+  
+  <!-- Test Details Box -->
+  <rect x="50" y="350" width="300" height="400" rx="5" class="box" fill="#E7F3FF"/>
+  <text x="200" y="380" text-anchor="middle" class="subtitle">REST Assured Tests</text>
+  <rect x="70" y="395" width="260" height="340" rx="3" fill="#FFFFFF" stroke="#232F3E"/>
+  
+  <text x="200" y="420" text-anchor="middle" class="label">SimpleGetRequestTest.java</text>
+  
+  <text x="80" y="445" class="small-label" font-weight="bold">Test Cases:</text>
+  <text x="90" y="465" class="small-label">✓ Verify status code 200</text>
+  <text x="90" y="485" class="small-label">✓ Verify content type</text>
+  <text x="90" y="505" class="small-label">✓ Verify response body</text>
+  <text x="90" y="525" class="small-label">✓ Extract response data</text>
+  <text x="90" y="545" class="small-label">✓ Get all posts</text>
+  <text x="90" y="565" class="small-label">✓ Query parameters</text>
+  
+  <text x="80" y="595" class="small-label" font-weight="bold">API Under Test:</text>
+  <text x="90" y="615" class="small-label">jsonplaceholder.typicode.com</text>
+  <text x="90" y="635" class="small-label">GET /posts/1</text>
+  <text x="90" y="655" class="small-label">GET /posts</text>
+  
+  <text x="80" y="685" class="small-label" font-weight="bold">Framework:</text>
+  <text x="90" y="705" class="small-label">• REST Assured 5.3.2</text>
+  <text x="90" y="720" class="small-label">• TestNG 7.8.0</text>
+  
+  <!-- Pipeline Flow Summary -->
+  <rect x="950" y="530" width="180" height="180" rx="5" class="box" fill="#E7FFE7"/>
+  <text x="1040" y="555" text-anchor="middle" class="subtitle">Pipeline Trigger</text>
+  <text x="1040" y="580" text-anchor="middle" class="small-label">On every git push:</text>
+  <text x="1040" y="605" text-anchor="middle" class="small-label">1. Auto detect change</text>
+  <text x="1040" y="625" text-anchor="middle" class="small-label">2. Pull latest code</text>
+  <text x="1040" y="645" text-anchor="middle" class="small-label">3. Run build</text>
+  <text x="1040" y="665" text-anchor="middle" class="small-label">4. Execute tests</text>
+  <text x="1040" y="685" text-anchor="middle" class="small-label">5. Publish results</text>
+  
+  <!-- Legend -->
+  <text x="950" y="180" class="small-label" font-weight="bold">Key Features:</text>
+  <text x="950" y="200" class="small-label">✓ Automated on commit</text>
+  <text x="950" y="218" class="small-label">✓ Test result reports</text>
+  <text x="950" y="236" class="small-label">✓ Artifact storage</text>
+  <text x="950" y="254" class="small-label">✓ Build logs</text>
+  <text x="950" y="272" class="small-label">✓ Dependency caching</text>
+</svg>

@@ -1,0 +1,46 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+    commands:
+      - echo "Installing dependencies..."
+      - echo "Maven version:"
+      - mvn --version
+      
+  pre_build:
+    commands:
+      - echo "Pre-build phase started on $(date)"
+      - echo "Running dependency resolution..."
+      - mvn dependency:resolve
+      
+  build:
+    commands:
+      - echo "Build phase started on $(date)"
+      - echo "Running Maven clean and compile..."
+      - mvn clean compile
+      
+  post_build:
+    commands:
+      - echo "Post-build phase started on $(date)"
+      - echo "Running REST Assured tests..."
+      - mvn test
+      - echo "Tests completed on $(date)"
+      
+reports:
+  TestReport:
+    files:
+      - '**/*'
+    base-directory: 'target/surefire-reports'
+    file-format: 'JUNITXML'
+    
+artifacts:
+  files:
+    - target/**/*.jar
+    - target/surefire-reports/**/*
+  name: rest-assured-artifacts
+  
+cache:
+  paths:
+    - '/root/.m2/**/*'
