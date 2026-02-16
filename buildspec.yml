@@ -28,12 +28,12 @@ phases:
       - mvn test
       - echo "Tests completed on $(date)"
       
-reports:
-  TestReport:
-    files:
-      - '**/*'
-    base-directory: 'target/surefire-reports'
-    file-format: 'JUNITXML'
+# reports:
+#   TestReport:
+#     files:
+#       - '**/*'
+#     base-directory: 'target/surefire-reports'
+#     file-format: 'JUNITXML'
     
 artifacts:
   files:
